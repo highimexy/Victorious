@@ -7,18 +7,22 @@ import { Works } from "./components/Works";
 function App() {
   return (
     <>
-      <Navigation />
       <div>
-        <Home />
-      </div>
-      <div>
-        <Works />
-      </div>
-      <div>
-        <AboutMe />
-      </div>
-      <div>
-        <Contact />
+        <div>
+          <Navigation />
+        </div>
+        <div>
+          <Home />
+        </div>
+        <div>
+          <Works />
+        </div>
+        <div>
+          <AboutMe />
+        </div>
+        <div>
+          <Contact />
+        </div>
       </div>
     </>
   );
