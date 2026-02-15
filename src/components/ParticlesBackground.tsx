@@ -35,7 +35,7 @@ export const ParticlesBackground = () => {
           straight: false, // Lekkie odchylenia wyglądają naturalniej
         },
         number: {
-          value: 40,
+          value: 25,
         },
         opacity: {
           value: 0.5,
@@ -45,7 +45,7 @@ export const ParticlesBackground = () => {
           options: {
             text: {
               // <--- 4. TUTAJ TEŻ KLUCZ "text"
-              value: ["0", "1", "{", "}", "</>", "404"],
+              value: ["</>", "404", "WK"],
               font: "monospace",
               style: "",
               weight: "400",
