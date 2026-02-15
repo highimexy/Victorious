@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 
+import HomeBg from "../assets/home/BgFreeHomeFix.png";
+import Linus from "../assets/home/Linus.webp";
+import Ken from "../assets/home/Ken.webp";
+
 export function Home() {
   const [activeTooltip, setActiveTooltip] = useState<number | null>(null);
 
@@ -37,9 +41,9 @@ export function Home() {
   return (
     <section className="flex min-h-screen flex-col items-center justify-center relative">
       {/* --- TYTUŁ (TYPEWRITER) --- */}
-      <div className="max-w-120 text-center px-4 mb-1">
+      <div className="max-w-160 text-center px-4 mb-1">
         <motion.h1
-          className="text-6xl md:text-7xl text-white newsreader-bold-italic leading-tight"
+          className="text-6xl md:text-8xl text-white newsreader-bold-italic leading-tight"
           variants={sentenceVariants}
           initial="hidden"
           animate="visible"
@@ -59,11 +63,7 @@ export function Home() {
         initial="hidden"
         animate="visible"
       >
-        <img
-          src="BgFreeHomeFix.png"
-          alt="Home"
-          className="w-full max-w-220 h-auto"
-        />
+        <img src={HomeBg} alt="Home" className="w-full max-w-260 h-auto" />
 
         {/* --- HOTSPOT NR 1 --- */}
         <div
@@ -81,7 +81,7 @@ export function Home() {
               >
                 <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[#00FF00]"></div>
                 <img
-                  src="/linx.webp"
+                  src={Linus}
                   alt="Linux"
                   className="w-full h-42 mb-2 object-cover rounded"
                 />
@@ -109,7 +109,7 @@ export function Home() {
               >
                 <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[#00FF00]"></div>
                 <img
-                  src="/go.webp"
+                  src={Ken}
                   alt="Go"
                   className="w-full h-42 mb-2 object-cover rounded"
                 />
@@ -124,14 +124,36 @@ export function Home() {
 
       {/* --- DOLNY TEKST --- */}
       <motion.div
-        className="max-w-5xl text-center px-6 mt-8"
+        className="max-w-7xl text-center px-4 mt-8"
         variants={imageVariants}
         initial="hidden"
         animate="visible"
       >
-        <p className="text-xl md:text-4xl text-gray-300 newsreader-bold-italic">
-          Wiktor Kowalczyk. Architektura kompletna. Projektuję systemy. Wdrażam
-          rozwiązania. Od wizji do skalowalnej produkcji.
+        <p className="text-xl md:text-5xl text-gray-300 newsreader-bold-italic leading-tight">
+          Wiktor Kowalczyk. Architektura kompletna. <br />
+          {/* Jasny Zielony - Pulsowanie 1 */}
+          <motion.span
+            className="text-[#00FF00]"
+            animate={{ opacity: [1, 0.6, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            Projektuję systemy.{" "}
+          </motion.span>
+          {/* Ciemniejszy Zielony - Pulsowanie 2 (z lekkim przesunięciem fazy) */}
+          <motion.span
+            className="text-green-700"
+            animate={{ opacity: [1, 0.5, 1] }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.5,
+            }}
+          >
+            Wdrażam rozwiązania.
+          </motion.span>
+          <br />
+          Od wizji do skalowalnej produkcji.
         </p>
       </motion.div>
     </section>
